@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'maven'
     id 'maven-publish'
     id 'jacoco'
     id 'com.github.kt3k.coveralls' version '2.4.0x'
@@ -58,6 +59,11 @@ task sourcesJar(type: Jar, dependsOn: classes) {
     from sourceSets.main.allSource
 }
 
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
+
 task renamePom(dependsOn: 'generatePomFileForMavenPublication') << {
     println(file('build/publications/maven/pom-default.xml'))
     file('build/publications/maven/pom-default.xml').renameTo("build/publications/maven/JRAW-${version}.pom")
@@ -105,6 +111,6 @@ publishing {
 defaultTasks "test"
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.10'
+    gradleVersion = '2.13'
     distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
 }
