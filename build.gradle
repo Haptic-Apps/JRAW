@@ -59,6 +59,11 @@ task sourcesJar(type: Jar, dependsOn: classes) {
     from sourceSets.main.allSource
 }
 
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
+
 task renamePom(dependsOn: 'generatePomFileForMavenPublication') << {
     println(file('build/publications/maven/pom-default.xml'))
     file('build/publications/maven/pom-default.xml').renameTo("build/publications/maven/JRAW-${version}.pom")
