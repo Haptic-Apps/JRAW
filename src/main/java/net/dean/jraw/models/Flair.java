@@ -8,15 +8,23 @@ import net.dean.jraw.RedditClient;
 public final class Flair {
     private final String cssClass;
     private final String text;
+    private final String textColor;
+    private final String backgroundColor;
+    private final String type;
+    private final String templateId;
 
     /**
      * Instantiates a new Flair
      *
      * @param cssClass The name of the class in the subreddit's stylesheet.
      */
-    public Flair(String cssClass, String text) {
+    public Flair(String cssClass, String text, String textColor, String backgroundColor, String type, String templateId) {
         this.cssClass = cssClass;
         this.text = text;
+        this.textColor = textColor;
+        this.backgroundColor = backgroundColor;
+        this.type = type;
+        this.templateId = templateId;
     }
 
     /**
@@ -31,6 +39,22 @@ public final class Flair {
     /** Gets the value of the flair. */
     public String getText() {
         return text;
+    }
+
+    public String getTextColor() {
+        return textColor;
+    }
+
+    public String getBackgroundColor() {
+        return backgroundColor;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getTemplateId() {
+        return templateId;
     }
 
     @Override
@@ -57,6 +81,10 @@ public final class Flair {
         return "Flair {" +
                 "cssClass='" + cssClass + '\'' +
                 ", text='" + text + '\'' +
+                ", textColor='" + textColor + '\'' +
+                ", backgroundColor='" + backgroundColor + '\'' +
+                ", type='" + type + '\'' +
+                ", templateId='" + templateId + '\'' +
                 '}';
     }
 }

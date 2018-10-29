@@ -61,7 +61,11 @@ public final class Submission extends PublicContribution {
         if (data.get("author_flair_css_class").isNull() && data.get("author_flair_text").isNull())
             return null;
         return new Flair(data("author_flair_css_class"),
-                data("author_flair_text"));
+                data("author_flair_text"),
+                data("author_flair_text_color"),
+                data("author_flair_background_color"),
+                data("author_flair_type"),
+                data("author_flair_template_id"));
     }
 
 
@@ -113,7 +117,11 @@ public final class Submission extends PublicContribution {
     @JsonProperty
     public Flair getSubmissionFlair() {
         return new Flair(data("link_flair_css_class"),
-                data("link_flair_text"));
+                data("link_flair_text"),
+                data("link_flair_text_color"),
+                data("link_flair_background_color"),
+                data("link_flair_type"),
+                data("link_flair_template_id"));
     }
 
     /**

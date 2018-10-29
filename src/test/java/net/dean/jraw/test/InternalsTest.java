@@ -71,11 +71,19 @@ public class InternalsTest extends RedditTest {
     public void testFlair() {
         String css = "css";
         String text = "text";
-        Flair f = new Flair(css, text);
+        String textColor = "textColor";
+        String backgroundColor = "backgroundColor";
+        String type = "type";
+        String templateId = "templateId";
+        Flair f = new Flair(css, text, textColor, backgroundColor, type, templateId);
         assertEquals(f.getCssClass(), css);
         assertEquals(f.getText(), text);
+        assertEquals(f.getTextColor(), textColor);
+        assertEquals(f.getBackgroundColor(), backgroundColor);
+        assertEquals(f.getType(), type);
+        assertEquals(f.getTemplateId(), templateId);
 
-        Flair f2 = new Flair(css, text);
+        Flair f2 = new Flair(css, text, textColor, backgroundColor, type, templateId);
         basicObjectTest(f, f2);
     }
 
